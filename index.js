@@ -13,6 +13,33 @@ app.get('/', (req, res) => res.send('Hello World'))
 
 app.get('/send', (req, res) => {
 
+    const { Kafka } = require('kafkajs')
+
+    const kafka = new Kafka({
+      clientId: 'tgl-adonis',
+      brokers: ['kafka1:9092', 'kafka2:9092']
+    })
+
+    const consumer = kafka.consumer({ groupId: 'user-email-info' })
+
+    consumer.connect()
+    consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  
+    consumer.run({
+      eachMessage: async ({ topic, partition, message }) => {
+        console.log({
+          partition,
+          offset: message.offset,
+          emailTo: message.value.toString(),
+          emailFrom: message.value.toString(),
+          emailSubject: message.value.toString(),
+        })
+    }
+})
+
+console.log('DIVISÓRIA')
+console.log(consumer)
+
 const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
     port: SMTP_PORT,
