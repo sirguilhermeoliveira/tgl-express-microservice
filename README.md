@@ -1,17 +1,17 @@
-#✨ Features
+# ✨ Features
 
-###📬 Email handling microservice triggered by Kafka events
+### 📬 Email handling microservice triggered by Kafka events
 
-###🔗 Kafka consumer listening to topics from the tgl-adonis producer
+### 🔗 Kafka consumer listening to topics from the tgl-adonis producer
 
-###📧 Sends transactional emails for:
+### 📧 Sends transactional emails for:
 
-###New user registration
+### New user registration
 
-###Password recovery
+### Password recovery
 
-###New bets placed
+### New bets placed
 
-###🧪 Built with Express.js for lightweight and fast processing
+### 🧪 Built with Express.js for lightweight and fast processing
 
-###🔐 Integrates with Mailtrap for safe testing in development
+### 🔐 Integrates with Mailtrap for safe testing in development
